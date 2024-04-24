@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    gap: 15px;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: grid;
+
+    grid-template-rows: repeat(1fr);
+    grid-template-areas:
+        "h1 h1 h1"
+        "div div nav"
+        "div div nav";
+
+}
+
+.content_box {
+    border: 1px solid black;
+    width: 100%;
+    grid-template-rows: 1fr 1 1fr;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.content_box:hover {
+    background-color: lightblue;
+    box-shadow: 5px 5px grey;
+}
+
+.content_box h3 {
+    margin: 0;
+    text-align: center;
+}
+
+.content_box img {
+    height: 200px;
+    width: 100%;
+}
+
+.content_box p {
+    margin: 5px;
+    text-align: center;
+}
+
+.wrapper>h1 {
+    grid-area: h1;
+    text-align: center;
+}
+
+.wrapper>.navigation {
+    grid-area: nav;
+
+}
+
+.navigation>nav {
+    border: 1px solid black;
+    height: 50px;
+    display: flex;
+
+}
+
+.navigation>nav>label {
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    text-align: center;
+}
+
+input {
+    display: none;
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .wrapper {
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "h1 h1 "
+            "nav nav"
+            "div div";
+    }
+
+    .navigation>nav>label {
+        width: 100%;
+        height: 100%;
+        background-color: lightblue;
+        text-align: center;
+
+    }
+
+    .navigation>nav {
+        width: 50%;
+        border: 1px solid black;
+        height: 50px;
+        display: inline-box;
+        justify-content: center;
+    }
+
+    p {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    nav {
+        flex-basis: calc(50% - 10px);
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+
+    .wrapper {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "h1  "
+            "nav "
+            "div ";
+    }
+
+    .navigation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    nav {
+        flex-basis: calc(50% - 10px);
+        text-align: center;
+    }
+
+    h3,
+    p {
+        display: none;
+    }
+
+}
